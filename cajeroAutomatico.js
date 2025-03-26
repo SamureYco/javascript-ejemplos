@@ -1,6 +1,25 @@
 let saldo=1000;
 let historial=[];
 
+function verificarPin(){
+    let intentos=3;
+    let pinCorrecto="123"; //PIN DE PRUEBA
+
+    while(intentos>0){
+        let pinIngresado= prompt("Ingrese su PIN: ");
+        if(pinIngresado===pinCorrecto){
+            alert("Acceso Concedido");
+            iniciarCajero(); //LLamar al Menur despues de poner el PIN
+            return true;
+        }else{
+            intentos--;
+            alert("PIN incorrecto. te queda "+intentos+" intentos.")
+        }
+    }
+    alert("Tarjeta bloqueada. Demasiados intentos fallidos")
+    return false;
+}
+
 function verHistorial(){
     if (historial.length===0){
         return("No hay transacciones registradas.")
@@ -22,6 +41,7 @@ function obtenerFecha(){
 function verSaldo(){
     alert ("Tu saldo actual es: $"+saldo)
 }
+//Funcion para depositar
 function depositar(){
     let cantidad=parseFloat(prompt("Cantidad a depositar: "));
     if (cantidad>0){
@@ -32,6 +52,7 @@ function depositar(){
         alert("Cantidad no valida")
     }
 }
+//Funcion para retirar el dinero 
 function retirarDinero(){
     let cantidad=parseFloat(prompt("Cantidad a retitar: "))
     if (cantidad>0 && cantidad<= saldo){
@@ -45,31 +66,34 @@ function retirarDinero(){
 // Función principal del cajero
 function iniciarCajero() {
     let opcion;
+
     
-    do {
-        opcion = prompt("Seleccione una opción:\n1. Ver saldo\n2. Depositar\n3. Retirar\n4. Ver historial\n5. Salir");
-        
-        switch (opcion) {
-            case "1":
-                verSaldo();
-                break;
-            case "2":
-                depositar();
-                break;
-            case "3":
-                retirarDinero();
-                break;
-            case "4":
-                verHistorial();
-                break;
-            case "5":
-                alert("Gracias por usar el cajero.");
-                break;
-            default:
-                alert("Opción no válida. Inténtelo de nuevo.");
-        }
-    } while (opcion !== "5");
+        do {
+            opcion = prompt("Seleccione una opción:\n1. Ver saldo\n2. Depositar\n3. Retirar\n4. Ver historial\n5. Salir");
+            
+            switch (opcion) {
+                case "1":
+                    verSaldo();
+                    break;
+                case "2":
+                    depositar();
+                    break;
+                case "3":
+                    retirarDinero();
+                    break;
+                case "4":
+                    verHistorial();
+                    break;
+                case "5":
+                    alert("Gracias por usar el cajero.");
+                    break;
+                default:
+                    alert("Opción no válida. Inténtelo de nuevo.");
+            }
+        } while (opcion !== "5");
+    
+    
 }
 
 // Iniciar el cajero
-iniciarCajero();
+verificarPin();
