@@ -14,7 +14,7 @@ function calcular(){
     const op1=parseFloat(txtOp1.value)
     const op2=parseFloat(txtOp2.value)
     
-    if((operacion =="+" || operacion =="-" || operacion =="x" || operacion =="/") && !isNaN(op1) && !isNaN(op2)){
+    if((operacion =="+" || operacion =="-" || operacion =="*" || operacion =="/") && !isNaN(op1) && !isNaN(op2)){
         
         let resultado;
         switch(operacion){
@@ -24,7 +24,7 @@ function calcular(){
             case "-":
                 resultado= op1-op2
                 break;
-            case "x":
+            case "*":
                 resultado= op1*op2
                 break
             case "/":
