@@ -9,13 +9,50 @@
         body{
             font-family: sans-serif;
             text-align: center;
+            background-color:mintcream;
+            color: brown;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        form{
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+
         }
         input{
+            width: 90%;
+            padding: 10px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
             display: block;
             margin: auto;
             margin-bottom: 25px;
-
         }
+        input:focus{
+            border: color #4caf50;
+            outline: none;
+        }
+
+        #calcular{
+            background-color:#4caf50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            transition: background 0.3 ease;
+        }
+        #resultado{
+            font-size: 24px;
+            font-weight: bold;
+            margin-top: 20px;
+            color:#d9534f;
+        }
+
     </style>
 </head>
 <body>
