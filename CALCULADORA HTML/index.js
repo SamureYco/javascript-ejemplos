@@ -16,6 +16,12 @@ function calcular(){
     
     if((operacion =="+" || operacion =="-" || operacion =="*" || operacion =="/") && !isNaN(op1) && !isNaN(op2)){
         
+        //no se puede dividir entre 0
+        if(operacion==="/" && op2===0){
+            pResultado.style.color="red";
+            pResultado.innerText="Error: No se puede dividir por 0";
+            return
+        }
         let resultado;
         switch(operacion){
             case "+":
